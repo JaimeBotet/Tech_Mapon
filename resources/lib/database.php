@@ -1,9 +1,13 @@
 <?php
 // This file will contain the function to create the connection with the database. Keep in mind that you must use your previously created database constants in order to connect with your database.
+define("HOST", 'localhost');
+define("DATABASE", 'maponTest');
+define("USER", 'root');
+define("PASSWORD", '');
+define("CHARSET", 'utf8mb4');
 
 class Database
 {
-
     private $host;
     private $db;
     private $user;

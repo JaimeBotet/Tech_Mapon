@@ -6,7 +6,7 @@ require "views/components/head.php";
 
 <body>
     <main class="container">
-        <form class="login col-md-6 mx-auto container mt-5 pt-5 mb-5 pb-2" method="post" action="admin.php">
+        <form class="login col-md-6 mx-auto container mt-5 pt-5 mb-5 pb-2" method="post" action="?controller=user&action=authenticate">
             <div class="form-label-group">
                 <input type="string" id="inputEmail" class="form-control my-2" placeholder="Username" required="" autofocus="" name="username">
             </div>

@@ -7,8 +7,7 @@ if (isset($_GET['controller'])) {
     if ($fileExists) {
         require_once $controller;
     } else {
-        $errorMsg = "The page you are trying to access does not exist.";
-        require_once VIEWS . "error/error.php";
+        require_once VIEWS . "dashboard/main.php";
     }
 } else {
     require_once VIEWS . "login/login.php";
