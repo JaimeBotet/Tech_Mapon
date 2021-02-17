@@ -1,0 +1,23 @@
+{
+  "name": "tech_mapon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JaimeBotet/Tech_Mapon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JaimeBotet/Tech_Mapon/issues"
+  },
+  "homepage": "https://github.com/JaimeBotet/Tech_Mapon#readme",
+  "dependencies": {
+    "bootstrap": "^4.6.0",
+    "jquery": "^3.5.1"
+  }
+}
