@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-require "../components/head.php";
+require "views/components/head.php";
 ?>
 
 <body>
