@@ -32,3 +32,8 @@ function getUser($request)
     }
     return $user;
 }
+
+function showDashboard()
+{
+    require_once VIEWS . "/dashboard/main.php";
+}
