@@ -22,7 +22,11 @@ function getCarRoute()
     $timeInterval = resolveTime($dateFrom, $timeFrom, $dateTo, $timeTo);
 
     $routePoints = getRouteAPI($timeInterval);
+    $fp = fopen(BASE_PATH . "/resources/polyline.json", 'w');
+    fwrite($fp, json_encode($routePoints));
+    fclose($fp);
 
+    // drawRouteInMap($routePoints);
     require_once VIEWS . "/dashboard/map.php";
 }
 
@@ -45,8 +49,10 @@ function getRouteAPI($timeInterval)
     curl_setopt($ch, CURLOPT_HEADER, 0);
     $data = json_decode(curl_exec($ch));
     curl_close($ch);
-    // echo '<pre>';
-    // print_r($data->data->units[0]->routes);
-    // echo '</pre>';
     return $data->data->units[0]->routes;
+}
+
+function drawRouteInMap($routePoints)
+{
+    require_once VIEWS . "/dashboard/map.php";
 }
