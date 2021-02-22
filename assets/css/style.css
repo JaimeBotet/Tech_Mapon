@@ -1,13 +1,20 @@
-.mapouter {
-    position: relative;
-    text-align: right;
+/* .map {
     height: 500px;
     width: 600px;
+    background-color: aqua;
+}*/
+
+#map {
+    height: 500px;
+    width: 600px;
+} 
+
+
+/* Optional: Makes the sample page fill the window. */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-.map_canvas {
-    overflow: hidden;
-    background: none !important;
-    height: 500px;
-    width: 600px;
-}
