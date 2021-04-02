@@ -4,7 +4,6 @@ require_once MODELS . "mapModel.php";
 
 $action;
 
-$action;
 if (isset($_REQUEST["action"])) {
     $action = $_REQUEST["action"];
 }
@@ -19,20 +18,19 @@ function getCarRoute()
     $dateTo = $_REQUEST['dateTo'];
     $timeTo = $_REQUEST['timeTo'];
 
-    $timeInterval = resolveTime($dateFrom, $timeFrom, $dateTo, $timeTo);
+    $timeInterval = formatTime($dateFrom, $timeFrom, $dateTo, $timeTo);
 
     $routePoints = getRouteAPI($timeInterval);
     $fp = fopen(BASE_PATH . "/resources/polyline.json", 'w');
     fwrite($fp, json_encode($routePoints));
     fclose($fp);
 
-    // drawRouteInMap($routePoints);
     require_once VIEWS . "/dashboard/map.php";
 }
 
-function resolveTime($dateFrom, $timeFrom, $dateTo, $timeTo)
+//The time format from the form needs to be formatted for the API input
+function formatTime($dateFrom, $timeFrom, $dateTo, $timeTo)
 {
-    //we create a clean way to pass the time interval we want to get the route from
     $timeInterval = new stdClass();
     $timeInterval->from = $dateFrom . 'T' . $timeFrom . ':00Z';
     $timeInterval->to = $dateTo . 'T' . $timeTo . ':00Z';
@@ -42,7 +40,6 @@ function resolveTime($dateFrom, $timeFrom, $dateTo, $timeTo)
 
 function getRouteAPI($timeInterval)
 {
-    //Use curl here to send API request
     $url = API_ROUTE . "&from=$timeInterval->from&till=$timeInterval->to&include[]=polyline";
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
